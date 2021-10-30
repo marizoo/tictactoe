@@ -50,12 +50,16 @@ const NEW_GAME =
   }
 
 return (
-  <div className="app">
-    <h1>Tic Tac Toe!</h1>
+  < div className="app">
+    <h1>Tic <span className="text-green">Tac</span> Toe!</h1>
     <StatusMessage winner={winner} current={current}/>
     <Board board={current.board} handleSquareClick={handleSquareClick} winningSquares={winningSquares}/>
-    <button type="button" onClick={onNewGame}>Start new game</button>
+    <button type="button" onClick={onNewGame}
+    className={`btn-reset ${winner ? 'active' : ''}`}
+    >Start new game</button>
+    <h2 style={{fontWeight: "normal"}}>Current game history</h2>
     <History history={history} moveTo={moveTo} currentMove={currentMove}/>
+    <div className="bg-balls"/>
   </div>
   )
 };
